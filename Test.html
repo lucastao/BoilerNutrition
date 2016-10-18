@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script>
+      function getCalories() {
+        console.log("I AM CALLED")
+        var input = parseInt(document.getElementById("userInput").value);
+        $.get("http://localhost:3000/foods?count=" + input, function(foods) {
+          //console.log(foods);
+          //alert(input + 10000);
+          //alert("SDFSDFSDF");
+          var sample = foods;
+          //alert(sample);
+          for (i = 0; i < foods.length; i++) {
+            alert(foods[i].name);
+          }
+          var bigBigBigString = "";
+          for (i = 0; i < sample.length; i++) {
+            bigBigBigString += listOfItems[i].name;
+            bigBigBigString += "\n";
+          }
+          //var listOfItems = GODFILE(input);
+          //alert(listOfItems);
+          //alert(listOfItems);
+          //alert(total);
+          //alert("SDFSDFSDfs");
+          var array3 = new Array();
+          var counter = 0;
+          var j = 1;
+          //var bigBigBigString = "";
+          var object0 = listOfItems[0];
+          var tempString = "";
+          var locat = 0;
+          array3.push(object0);
+
+          //var string1 = listOfItems.toString();
+          for (i = 0; i < sample.length; i++) {
+            bigBigBigString += listOfItems[i].name;
+          }
+          var increment = 0;
+          while (bigBigBigString.length > 0) {
+            locat = bigBigBigString.indexOf(listOfItems[increment].name) + listOfItems[increment].name.length;
+            tempString = bigBigBigString.substring(0, locat);
+            counter++;
+
+            alert("EAT " + counter + " SERVINGS OF" + bigBigBigString.substring(0, locat));
+
+
+            bigBigBigString = bigBigBigString.substring(locat, bigBigBigString.length);
+
+            increment++;
+          }
+
+            //for (i = 0; i < listOfItems.length; i++) {
+            // counter = 0;
+            // var foodItem1 = listOfItems[i];
+            // for (j = 0; j < listOfItems.length; j++) {
+            //   if (foodItem1.name.localeCompare(listOfItems[j].name)) {
+            //     counter++;
+            //   }
+            // }
+            // for (j = 0; j < listOfItems.length; j++) {
+            //   if (foodItem1.name.localeCompare(listOfItems[j].name)) {
+            //     listOfItems.splice(j, 1);
+            //   }
+            // }
+            // alert("Eat " + (counter) + " servings of" + foodItem1.name);
+
+
+            //alert(combination)
+            //alert("EAT " + listOfItems[i].name + " NOW!");
+            //console.log("EAT " + combination[i].name + " NOW!");
+          //}
+          })
+
+      }
+    </script>
+  </head>
+  <body>
+    <b>Welcome to BoilerNutrition!</b>
+      Please input the number of calories you would like to consume for today:
+      <br><input type="text" id ="userInput"/>
+      <button onclick = "getCalories();">Get</button>
+
+  </body>
+
+</html>
